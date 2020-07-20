@@ -1,0 +1,235 @@
+//$color-grey-dark: #777;
+//$color-white: #fff;
+//$color-green-primary: rgb(46, 160, 51);
+//$color-green-ligth: rgb(171, 227, 202);
+//$color-black: rgb(0,0,0);
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  /*Por defecto en porcentaje si c pone 100% son 16px*/
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Loto", sans-serif;
+  /*font-size: 16px;*/
+  line-height: 1.7;
+  font-weight: 400;
+  color: $color-grey-dark;
+  padding: 3rem;
+  box-sizing: border-box;
+}
+/*vh y vw pa tamano*/
+/*1vh = 1% de la altura del viewport*/
+/*100vh = altura del viewport*/
+/*1vw = 1% del ancho del viewport*/
+/*100vw = ancho del viewport*/
+
+/*Pa formar figuras con las fotos es esta url bennettfeely.com/clippy*/
+.header{
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba($color-green-primary, 0.6), rgba($color-green-ligth, 0.6)), url("http://localhost:3000/kratos-was-almost-cut-from-god-of-war_amne.jpg");
+  background-size: cover; /*or 100% es lo mismo q cover*/
+  background-position: center; /* Esto es pa mantener las dimensiones de una foto aqui c puede usar top pa mantener lo mismo de arriba rigth a la derecha left bottom*/
+  position: relative; /*A partir del padre*/
+
+  /*top-left, top-right, bottom-right, bottom-left*/
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+.header__logo-box {
+  position: absolute; /*A partir del hermano anterior*/
+  top: 4rem;
+  left: 4rem;
+}
+.header__logo {
+  height: 5rem;
+}
+/*Esto es pa vuando c pase el mouse por arriba*/
+/*.logo:hover {*/
+/*    animation: moveInRightLeft 4s ease-out;;*/
+/*}*/
+.heading-primary{
+  color: $color-white;
+  text-transform: uppercase;
+
+  /*Esto es pa arreglar el defecto de q cuando termine una animacion se acomoda la etiqueta q contiene el q esta haciendo la animacion*/
+  //backface-visibility: hidden;
+  margin-bottom: 6rem;
+  /*text-justify: newspaper;*/
+}
+.heading-primary--main{
+  display: block; /*Esto es pa lo q estoy poniendo abarque tod el bloque*/
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 3.5rem;
+
+  animation: moveInLeftRight 4s ease-out;
+  /*Esto es una manera de hacerlo la mas rapida es la de arriba pq puedes poner los detalles y el los identifica*/
+  /*animation-name: moveInLeftRight;*/
+  /*animation-duration: 4s;*/
+  /*animation-timing-function: ease-out;*/
+
+  /*Esto es pa decir cuantas veces quieres q c repita la animacion*/
+  /*animation-iteration-count: 3;*/
+  /*Esto es pa demorar el inicio de ejecucion de la animacion*/
+  /*animation-delay: 3s;*/
+}
+.heading-primary--sub{
+  display: block;
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 1.75rem;
+
+  animation: moveInRightLeft 4s ease-out;
+}
+.header__text-box {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+/*Esto es pa crear animaciones*/
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem)/*rotate(180deg)*/;
+  }
+  80% {
+    transform: translateX(2rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+  80%{
+    transform: translateX(-2rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInRightLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem) /*rotate(0deg)*/ ;
+  }
+  25% {
+    transform: translateX(-2rem) /*rotate(180deg) Esto es pa rotar algo*/ ;
+  }
+  49%{
+    opacity: 1;
+    transform: translateX(0) /*rotate(0deg)*/ ;
+  }
+  50% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+  75% {
+    transform: translateX(2rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInLeftRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+  25% {
+    transform: translateX(2rem);
+  }
+  49%{
+    opacity: 1;
+    transform: translateX(0);
+  }
+  50% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+  75% {
+    transform: translateX(-2rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.btn:link,
+.btn:visited{
+  font-size: 1.5rem;
+  position: relative;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 10rem;
+  transition: all .2s;/*Otra manera de hacer animaciones*/
+  /*top-bottom && left-right*/
+  padding: 1.5rem 4rem;
+  display: inline-block;/*poner otro bloque en la linea*/
+}
+.btn:hover{
+  transform: translateY(-.3rem);
+  box-shadow: 0 1rem 2rem rgba($color-black,.2);
+}
+.btn:active{
+  transform: translateY(-.1rem);
+  box-shadow: 0 .5rem 1rem rgba($color-black,.2);
+}
+.btn--white {
+  background-color: $color-white;
+  color: $color-grey-dark;
+}
+.btn::before,
+.btn::after{
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;/*Esconder algo por detras de otra cosa*/
+  transition: all .4s;
+}
+.btn:hover::after{
+  opacity: 0;
+  transform: scaleX(1.4) scaleY(1.6);/*Multiplicar el size por el numero q c ponga*/
+}
+@keyframes moveInBottom {
+  0%{
+    opacity: 0;
+    transform: translateY(5rem);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.btn--white::after{
+  background-color: $color-white;
+}
+.btn--animated {
+  animation: moveInBottom .5s ease-out .60s backwards;
+  /*backwards es pa q el objeto objetivo de la animacion c mantenga oculto*/
+}

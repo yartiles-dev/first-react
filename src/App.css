@@ -1,0 +1,14 @@
+body {
+  font-family: 'Open Sans Condensed';
+  padding: 20px 60px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+* {
+  /*Esto se hace pa q los contenedores no sean mas grandes pq c les ponga padding border margin, etc*/
+  box-sizing: border-box;
+}
