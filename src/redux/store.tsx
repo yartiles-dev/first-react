@@ -9,7 +9,11 @@ import rootReducer from './root-redux'
 //En caso de que no c quiera modificar la matriz c utiliza de esta manera
 //createStore(rootReducer, applyMiddleware(logger))
 
-const middlewares = [logger]
+const middlewares: any[] = []
+
+if(process.env.NODE_ENV === 'development') {
+    middlewares.push(logger)
+}
 
 const store = createStore(rootReducer, applyMiddleware(...middlewares))
 
