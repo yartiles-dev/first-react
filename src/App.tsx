@@ -154,7 +154,20 @@ export default connect(mapStateToProps, mapDispatchToProps)(App);
 
 
 
-
+////////////////////////////////////////////////
+// import './App.scss'
+//
+// import UserProfile from "./components/user-profile.component";
+// import UserList from "./components/user-list.component";
+//
+// export default function App() {
+//     return (
+//         <div className="App">
+//             <UserList />
+//             <UserProfile name="Yihua" email="yartiles161195@gmail.com"/>
+//         </div>
+//     )
+// }
 
 ////////////////////////////////////////////////
 
