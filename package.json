@@ -2,9 +2,9 @@
   "name": "my-first",
   "version": "0.1.0",
   "engines": {
-    "yarn": "1.19.1",
-    "node": "12.18.2",
-    "npm": "6.13.1"
+    "yarn": "1.*",
+    "node": "12.*",
+    "npm": "6.*"
   },
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
